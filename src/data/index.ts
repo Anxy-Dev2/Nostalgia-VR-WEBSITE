@@ -15,7 +15,9 @@ export const personalInfo = {
   tagline:
     "Unity-first development with full-body VR physics, custom gameplay systems, and Gorilla Tag fan game expertise.",
   location: "Canada",
-  socials: {},
+  socials: {
+    github: "",
+  },
 };
 
 export interface Project {
