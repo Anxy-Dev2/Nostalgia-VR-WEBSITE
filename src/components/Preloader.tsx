@@ -15,14 +15,10 @@ export default function Preloader() {
           if (intervalRef.current) clearInterval(intervalRef.current);
           return 100;
         }
-        const increment = Math.floor(Math.random() * 12) + 1;
-        return Math.min(prev + increment, 100);
+        return Math.min(prev + Math.floor(Math.random() * 12) + 1, 100);
       });
     }, 80);
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
   }, []);
 
   useEffect(() => {
@@ -47,7 +43,7 @@ export default function Preloader() {
             transition={{ duration: 0.4 }}
           >
             <span className="font-display text-sm uppercase tracking-[0.3em] text-muted">
-              Carter
+              Nostalgia VR
             </span>
 
             <div className="flex items-baseline gap-1">
@@ -57,9 +53,7 @@ export default function Preloader() {
               >
                 {count}
               </motion.span>
-              <span className="font-display text-2xl text-muted md:text-4xl">
-                %
-              </span>
+              <span className="font-display text-2xl text-muted md:text-4xl">%</span>
             </div>
 
             <div className="h-[1px] w-48 bg-dark-400 md:w-64">
@@ -70,6 +64,10 @@ export default function Preloader() {
                 transition={{ duration: 0.1 }}
               />
             </div>
+
+            <span className="font-display text-xs uppercase tracking-[0.2em] text-dark-500">
+              Entering the liminal...
+            </span>
           </motion.div>
         </motion.div>
       )}

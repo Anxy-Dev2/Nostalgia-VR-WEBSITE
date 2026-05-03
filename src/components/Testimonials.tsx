@@ -1,48 +1,101 @@
 "use client";
 
-import { testimonials } from "@/data";
+import { reviews, gameInfo } from "@/data";
 import { FadeUp, StaggerContainer, StaggerItem } from "./TextReveal";
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          className="h-3.5 w-3.5"
+          fill={i < rating ? "#a78bfa" : "none"}
+          stroke="#a78bfa"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+          />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function RatingBar({ label, percent }: { label: string; percent: number }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="w-4 text-right text-xs text-muted">{label}</span>
+      <div className="flex-1 h-1.5 rounded-full bg-dark-400 overflow-hidden">
+        <div
+          className="h-full rounded-full bg-accent transition-all duration-700"
+          style={{ width: `${percent}%` }}
+        />
+      </div>
+      <span className="w-8 text-xs text-muted">{percent}%</span>
+    </div>
+  );
+}
 
 export default function Testimonials() {
   return (
-    <section className="relative py-32">
+    <section id="reviews" className="relative py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <FadeUp>
           <p className="font-display mb-3 text-sm uppercase tracking-[0.3em] text-accent">
-            Testimonials
+            Player Reviews
           </p>
         </FadeUp>
         <FadeUp delay={0.1}>
-          <h2 className="font-display mb-16 text-3xl font-bold text-heading md:text-5xl">
-            What Others Say
+          <h2 className="font-display mb-6 text-3xl font-bold text-heading md:text-5xl">
+            What Players Say
           </h2>
         </FadeUp>
 
-        <StaggerContainer
-          className="grid gap-6 md:grid-cols-3"
-          staggerDelay={0.15}
-        >
-          {testimonials.map((testimonial) => (
-            <StaggerItem key={testimonial.id}>
-              <div className="flex h-full flex-col rounded-2xl border border-dark-400 bg-dark-200 p-6 transition-all duration-300 hover:border-dark-500">
-                {/* Quote Icon */}
-                <svg
-                  className="mb-4 h-8 w-8 text-accent/30"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
+        {/* Rating Summary */}
+        <FadeUp delay={0.15}>
+          <div className="mb-16 flex flex-col gap-6 rounded-2xl border border-dark-400 bg-dark-200 p-6 md:flex-row md:items-center md:gap-12 md:p-8">
+            <div className="flex flex-col items-center gap-2 shrink-0">
+              <span className="font-display text-6xl font-bold text-heading">{gameInfo.rating}</span>
+              <StarRating rating={Math.round(parseFloat(gameInfo.rating))} />
+              <span className="text-xs text-muted">{gameInfo.totalRatings} ratings · {gameInfo.totalReviews} reviews</span>
+            </div>
+            <div className="flex-1 space-y-2">
+              {Object.entries(gameInfo.ratingBreakdown)
+                .sort(([a], [b]) => Number(b) - Number(a))
+                .map(([star, pct]) => (
+                  <RatingBar key={star} label={star} percent={pct} />
+                ))}
+            </div>
+          </div>
+        </FadeUp>
 
-                <p className="mb-6 flex-1 text-sm leading-relaxed text-body italic">
-                  &ldquo;{testimonial.text}&rdquo;
+        <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.15}>
+          {reviews.map((review) => (
+            <StaggerItem key={review.id}>
+              <div className="flex h-full flex-col rounded-2xl border border-dark-400 bg-dark-200 p-6 transition-all duration-300 hover:border-accent/20">
+                <div className="mb-3 flex items-center justify-between">
+                  <StarRating rating={review.rating} />
+                  <span className="text-xs text-muted">{review.date}</span>
+                </div>
+
+                <p className="font-display mb-2 text-sm font-semibold text-heading">
+                  {review.title}
                 </p>
 
-                <div className="border-t border-dark-400 pt-4">
+                <p className="mb-6 flex-1 text-sm leading-relaxed text-body">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+
+                <div className="border-t border-dark-400 pt-4 flex items-center justify-between">
                   <p className="font-display text-sm font-semibold text-heading">
-                    {testimonial.name}
+                    {review.name}
                   </p>
-                  <p className="text-xs text-muted">{testimonial.role}</p>
+                  <span className="text-xs text-muted">{review.helpful} found helpful</span>
                 </div>
               </div>
             </StaggerItem>

@@ -25,7 +25,7 @@ export default function CustomCursor() {
     const handleMouseEnterInteractive = () => {
       gsap.to(cursor, {
         scale: 2,
-        borderColor: "rgba(249, 115, 22, 0.5)",
+        borderColor: "rgba(167, 139, 250, 0.5)",
         duration: 0.3,
       });
     };

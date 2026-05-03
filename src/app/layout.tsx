@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,24 +14,39 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: "Carter — Unity & VR Physics Portfolio",
+  title: "Nostalgia VR — Liminal Horror for Meta Quest",
   description:
-    "Unity developer specializing in full-body VR physics, Gorilla Tag fan games, and custom gameplay systems.",
+    "Explore Dreamcore, Weirdcore, Frutiger Aero, and the Backrooms in this multiplayer VR horror game by Constantplot. Available on Meta Quest.",
   keywords: [
-    "Carter",
-    "Unity Developer",
-    "VR Physics",
-    "Gorilla Tag",
-    "Hurricane VR",
-    "C#",
-    "Portfolio",
+    "Nostalgia VR",
+    "VR Horror",
+    "Backrooms VR",
+    "Dreamcore",
+    "Weirdcore",
+    "Meta Quest",
+    "Multiplayer Horror",
+    "Liminal Spaces",
+    "Constantplot",
   ],
-  authors: [{ name: "Carter" }],
+  authors: [{ name: "Constantplot" }],
   openGraph: {
-    title: "Carter — Unity & VR Physics Portfolio",
+    title: "Nostalgia VR — Liminal Horror for Meta Quest",
     description:
-      "A portfolio showcasing Unity gameplay systems, VR interaction design, and custom C# physics tools.",
+      "Step into the liminal. Survive the nostalgia. A multiplayer VR horror game featuring Dreamcore, Weirdcore, Frutiger Aero, and Backrooms levels.",
     type: "website",
   },
 };
@@ -44,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} bg-dark text-body antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${poppins.variable} bg-frutiger-gradient text-body antialiased`}
       >
         <div className="grain-overlay">{children}</div>
       </body>

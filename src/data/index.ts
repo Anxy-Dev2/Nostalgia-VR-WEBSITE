@@ -1,114 +1,166 @@
-export const personalInfo = {
-  name: "Carter",
-  displayName: "Carter",
-  handle: "Carter",
-  email: "carter21232@gmail.com",
-  title: "Unity Developer & VR Physics Engineer",
-  roles: [
-    "Unity Systems Engineer",
-    "VR Gameplay Programmer",
-    "Full-Body Physics Specialist",
-    "Gorilla Tag Fan Game Creator",
-  ],
-  bio: `I build immersive Unity experiences with custom full-body physics and VR gameplay systems. My work includes Hurricane VR-style mechanics, Gorilla Tag-inspired movement, and polished C# systems that feel responsive and natural in motion.`,
-  bioContinued: `I bring 2.5 years of Unity development, 1.5 years of C# engineering, and 6 months of full-stack experience — all focused on clean systems, performant gameplay, and immersive interaction.`,
-  tagline:
-    "Unity-first development with full-body VR physics, custom gameplay systems, and Gorilla Tag fan game expertise.",
-  location: "Canada",
-  socials: {
-    github: "",
+export const gameInfo = {
+  name: "Nostalgia VR",
+  developer: "Constantplot",
+  studio: "Dimensional Studios",
+  version: "0.185",
+  releaseDate: "April 6, 2026",
+  rating: "3.9",
+  totalRatings: 107,
+  totalReviews: 43,
+  category: "Games",
+  genres: ["Platformer", "Action", "Horror"],
+  platforms: ["Meta Quest 3S", "Meta Quest 3", "Meta Quest Pro", "Meta Quest 2"],
+  controllers: "Touch Controllers",
+  playerModes: ["Standing", "Roomscale"],
+  gameModes: "Multiplayer",
+  spaceRequired: "668.58 MB",
+  comfortLevel: "Comfortable",
+  internet: "Internet connection required",
+  website: "https://www.meta.com/experiences/nostalgia-vr/26292042740447025/",
+  discord: "https://discord.gg/tpnqKTGk",
+  tagline: "Step into the liminal. Survive the nostalgia.",
+  description: `Nostalgia VR is a fun horror game to play with your friends. Explore many nostalgic levels like Dreamcore, Weirdcore, Frutiger Aero, and multiple Backrooms levels. Have fun and follow the rules!`,
+  ratingBreakdown: {
+    5: 57,
+    4: 14,
+    3: 7,
+    2: 6,
+    1: 16,
   },
 };
 
-export interface Project {
+export interface Level {
   id: number;
   title: string;
   description: string;
   tags: string[];
-  liveUrl?: string;
-  sourceUrl?: string;
   gradient: string;
   image?: string;
+  liveUrl?: string;
+  sourceUrl?: string;
 }
 
-export const projects: Project[] = [
+export const levels: Level[] = [
   {
     id: 1,
-    title: "Hurricane VR Physics Suite",
+    title: "Dreamcore",
     description:
-      "Custom full-body VR physics systems built in Unity with C#. Includes locomotion, grab interactions, and momentum handling for immersive motion gameplay.",
-    tags: ["Unity", "C#", "VR", "Physics"],
-    gradient: "from-cyan-500/20 to-blue-500/20",
-    image: "/projects/hurricane-vr.png",
-  },
-  {
-    id: 2,
-    title: "Gorilla Tag Fan Game Prototype",
-    description:
-      "A fast-paced VR fan game inspired by Gorilla Tag. Features tracked movement, climbing interactions, and polished player feel for immersive multiplayer sessions.",
-    tags: ["Unity", "C#", "VR", "Multiplayer"],
-    gradient: "from-emerald-500/20 to-teal-500/20",
-    image: "/projects/gorillatag-fangame.jpg",
-  },
-  {
-    id: 3,
-    title: "Full-Body Interaction System",
-    description:
-      "Reusable VR interaction systems for hand/object physics, collision response, and realistic movement across tracked rigs.",
-    tags: ["Unity", "C#", "Physics", "VR"],
+      "Drift through surreal, pastel-drenched dreamscapes where reality bends and familiar places feel hauntingly wrong. An eerie but comforting liminal experience.",
+    tags: ["Liminal", "Horror", "Multiplayer"],
     gradient: "from-purple-500/20 to-pink-500/20",
   },
   {
-    id: 4,
-    title: "Custom Gameplay Toolkit",
+    id: 2,
+    title: "Weirdcore",
     description:
-      "A library of C# tools for fast prototyping, state-driven movement, and polished input handling in Unity projects.",
-    tags: ["Unity", "C#", "Tools"],
-    gradient: "from-orange-500/20 to-yellow-500/20",
+      "Distorted imagery, unsettling aesthetics, and a deep sense of dread. Weirdcore pulls you into a world that feels both familiar and deeply wrong.",
+    tags: ["Horror", "Atmospheric", "Multiplayer"],
+    gradient: "from-cyan-500/20 to-blue-500/20",
+  },
+  {
+    id: 3,
+    title: "Frutiger Aero",
+    description:
+      "Glossy surfaces, nature motifs, and the warm glow of early 2000s tech. A nostalgic paradise hiding something sinister beneath its polished exterior.",
+    tags: ["Nostalgic", "Aesthetic", "Multiplayer"],
+    gradient: "from-teal-500/20 to-green-500/20",
+  },
+  {
+    id: 4,
+    title: "The Backrooms — Level 0",
+    description:
+      "The classic yellow wallpaper, buzzing fluorescent lights, and the smell of wet carpet. No exits. No escape. Just the hum.",
+    tags: ["Backrooms", "Horror", "Multiplayer"],
+    gradient: "from-yellow-500/20 to-orange-500/20",
   },
   {
     id: 5,
-    title: "Interactive VR Demo",
+    title: "The Backrooms — Deep Levels",
     description:
-      "A polished demo experience showcasing precision VR interaction, environmental feedback, and immersive physics-driven gameplay.",
-    tags: ["Unity", "VR", "Game Dev"],
-    gradient: "from-blue-500/20 to-indigo-500/20",
+      "Venture beyond Level 0 into darker, stranger territories. Each level more unsettling than the last. Watch your back.",
+    tags: ["Backrooms", "Horror", "Multiplayer"],
+    gradient: "from-red-500/20 to-rose-500/20",
   },
   {
     id: 6,
-    title: "Portfolio Showcase",
+    title: "More Levels Coming",
     description:
-      "A modern portfolio built with Next.js and Tailwind to highlight Unity systems, VR projects, and real-time gameplay work.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+      "Constantplot continues to expand Nostalgia VR with new liminal worlds, horror scenarios, and multiplayer experiences. Stay tuned.",
+    tags: ["Upcoming", "Multiplayer"],
     gradient: "from-slate-500/20 to-slate-700/20",
   },
 ];
 
-export interface Skill {
+export interface Review {
+  id: number;
   name: string;
-  category: "language" | "frontend" | "backend" | "tool" | "gamedev";
-  color: string;
-  icon: string;
-  desc: string;
+  rating: number;
+  title: string;
+  text: string;
+  helpful: number;
+  date: string;
 }
 
-const devicon = (name: string, variant = "original") =>
-  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-${variant}.svg`;
-
-export const skills: Skill[] = [
-  { name: "C#", category: "language", color: "#239120", icon: devicon("csharp"), desc: "Core language for Unity gameplay and VR systems." },
-  { name: "Unity", category: "gamedev", color: "#ffffff", icon: devicon("unity"), desc: "Primary engine for VR games, physics, and interactive systems." },
-  { name: "VR", category: "gamedev", color: "#8b5cf6", icon: "", desc: "Full-body interaction, locomotion, and immersive gameplay." },
-  { name: "Physics", category: "gamedev", color: "#f97316", icon: "", desc: "Custom collision, momentum, and motion systems." },
-  { name: "Gorilla Tag", category: "gamedev", color: "#22c55e", icon: "", desc: "Fan game design and movement-driven gameplay." },
-  { name: "Unreal Engine", category: "gamedev", color: "#00c2ff", icon: "", desc: "Additional engine experience for interactive prototypes." },
-  { name: "TypeScript", category: "language", color: "#3178C6", icon: devicon("typescript"), desc: "Web tooling, portfolio interfaces, and supporting systems." },
-  { name: "React", category: "frontend", color: "#61DAFB", icon: devicon("react"), desc: "Modern UI development for portfolio and tools." },
-  { name: "Node.js", category: "backend", color: "#339933", icon: devicon("nodejs"), desc: "Backend services and utility tooling for game projects." },
-  { name: "Git", category: "tool", color: "#F05032", icon: devicon("git"), desc: "Version control workflows and collaborative development." },
+export const reviews: Review[] = [
+  {
+    id: 1,
+    name: "Phantom._.0",
+    rating: 5,
+    title: "Just what I was looking for",
+    text: "I've been looking for a dreamcore/backrooms game and have had no luck until I found this game. It was just what I was looking for, an eerie but comforting game. I love all the levels and it was just what I was looking for.",
+    helpful: 11,
+    date: "4 days ago",
+  },
+  {
+    id: 2,
+    name: "QQ21",
+    rating: 4,
+    title: "Really good liminal game",
+    text: "I like the nostalgic effects and feeling it gives and the devs or dev actually put effort into the levels, but I don't like how it's mostly puzzle levels and just the same monster but overall the game is really good.",
+    helpful: 9,
+    date: "Apr 6",
+  },
+  {
+    id: 3,
+    name: "raredragon81",
+    rating: 3,
+    title: "Really good but…",
+    text: "Haven't played the game, but already seeing potential in it. My complaint is it won't let me join a lobby, displaying the player count as 0. Already tried to join a public and private lobby and it won't work. I already tried restarting the game and redownloading it. Overall, I see potential in it — just please fix the bugs.",
+    helpful: 14,
+    date: "2 days ago",
+  },
 ];
 
-export interface Experience {
+export interface GameFeature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export const features: GameFeature[] = [
+  {
+    title: "Multiplayer Horror",
+    description: "Explore terrifying liminal spaces with your friends. Face the unknown together.",
+    icon: "01",
+  },
+  {
+    title: "Nostalgic Levels",
+    description: "Dreamcore, Weirdcore, Frutiger Aero, and multiple Backrooms levels to explore.",
+    icon: "02",
+  },
+  {
+    title: "VR Immersion",
+    description: "Full roomscale and standing support on all Meta Quest headsets for maximum immersion.",
+    icon: "03",
+  },
+  {
+    title: "Eerie Atmosphere",
+    description: "Carefully crafted environments that feel both familiar and deeply unsettling.",
+    icon: "04",
+  },
+];
+
+export interface GameSpec {
   id: number;
   title: string;
   company: string;
@@ -117,121 +169,65 @@ export interface Experience {
   type: "work" | "military" | "education";
 }
 
-export const experiences: Experience[] = [
+export const specs: GameSpec[] = [
   {
     id: 1,
-    title: "Unity & VR Systems Developer",
-    company: "Independent",
-    period: "Jan 2024 — Present",
+    title: "Supported Platforms",
+    company: "Meta Quest",
+    period: "Released April 6, 2026",
     description: [
-      "Designing full-body physics systems and VR motion mechanics in Unity.",
-      "Building Gorilla Tag-inspired fan games with tracked locomotion and climbing.",
-      "Creating reusable C# gameplay tools for interaction, input, and collision response.",
+      "Meta Quest 3S — Full support",
+      "Meta Quest 3 — Full support",
+      "Meta Quest Pro — Full support",
+      "Meta Quest 2 — Full support",
     ],
     type: "work",
   },
   {
     id: 2,
-    title: "Hurricane VR Physics Engineer",
-    company: "Project Studio",
-    period: "2024 — Present",
+    title: "Game Details",
+    company: "Constantplot",
+    period: "Version 0.185",
     description: [
-      "Implemented custom VR locomotion and hand interaction systems for immersive gameplay.",
-      "Optimized physics performance for smooth motion on headsets and tracked rigs.",
-      "Delivered high-fidelity interaction feel across custom Unity demos and prototypes.",
+      "Category: Games — Platformer, Action",
+      "Game Mode: Multiplayer",
+      "Player Modes: Standing, Roomscale",
+      "Controllers: Touch Controllers",
     ],
     type: "work",
   },
   {
     id: 3,
-    title: "Full Stack Developer",
-    company: "Personal Projects",
-    period: "Sep 2025 — Present",
+    title: "Technical Requirements",
+    company: "System Info",
+    period: "668.58 MB",
     description: [
-      "Built portfolio and tooling interfaces using Next.js, TypeScript, and Tailwind CSS.",
-      "Created backend utilities and deployment workflows to support game project assets.",
-      "Maintained clean code structure for both web and gameplay systems.",
-    ],
-    type: "work",
-  },
-  {
-    id: 4,
-    title: "Unreal Engine Prototyper",
-    company: "Independent",
-    period: "2025 — 2026",
-    description: [
-      "Developed gameplay prototypes and interactive systems in Unreal Engine.",
-      "Explored advanced animation, physics, and input-driven interactions.",
-      "Delivered proof-of-concept demos for fast iteration and design validation.",
-    ],
-    type: "work",
-  },
-  {
-    id: 5,
-    title: "C# Developer",
-    company: "Self-Directed",
-    period: "2023 — Present",
-    description: [
-      "Designed reusable systems and utilities for game engines and custom tools.",
-      "Focused on performance, modular architecture, and maintainable code.",
-      "Integrated physics, input, and gameplay state logic across Unity projects.",
-    ],
-    type: "work",
-  },
-  {
-    id: 6,
-    title: "Game Dev Student",
-    company: "Self-Learning",
-    period: "2021 — 2023",
-    description: [
-      "Studied game development, 3D math, VR interaction, and physics systems.",
-      "Built portfolio projects in Unity, Unreal, and supporting web tools.",
-      "Learned to translate player motion into responsive gameplay feel.",
+      "Space Required: 668.58 MB",
+      "Internet Connection: Required",
+      "Comfort Level: Comfortable",
+      "Microphone: Used for multiplayer",
     ],
     type: "education",
   },
-];
-
-export interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  text: string;
-}
-
-export const testimonials: Testimonial[] = [
   {
-    id: 1,
-    name: "Studio Lead",
-    role: "Unity Team Lead",
-    text: "Carter shipped a responsive VR physics prototype with clean systems and strong attention to player feel.",
+    id: 4,
+    title: "Developer",
+    company: "Dimensional Studios",
+    period: "Constantplot",
+    description: [
+      "Developer: Constantplot",
+      "Publisher: Constantplot",
+      "Studio: Dimensional Studios",
+      "Built in Unity",
+    ],
+    type: "work",
   },
-  {
-    id: 2,
-    name: "Community Tester",
-    role: "VR Player",
-    text: "The Gorilla Tag-inspired movement felt natural and energetic from the first playtest.",
-  },
-  {
-    id: 3,
-    name: "Project Partner",
-    role: "Creative Technologist",
-    text: "He turned complex physics and input problems into polished gameplay tools that were easy to iterate on.",
-  },
-];
-
-export const certificates = [
-  "Unity Game Development — Coursera",
-  "VR Interaction Design — Udemy",
-  "C# Programming — Pluralsight",
-  "Full-Stack Web Development — FreeCodeCamp",
-  "Game Physics Fundamentals — Udemy",
 ];
 
 export const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Levels", href: "#levels" },
+  { label: "Details", href: "#details" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Community", href: "#community" },
 ];

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks, personalInfo } from "@/data";
+import { navLinks, gameInfo } from "@/data";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -16,11 +16,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
   }, [mobileOpen]);
 
   return (
@@ -39,11 +35,9 @@ export default function Navbar() {
             href="#"
             className="font-display text-lg font-bold tracking-tight text-heading transition-colors hover:text-accent"
           >
-            {personalInfo.handle}
-            <span className="text-accent">.</span>
+            Nostalgia<span className="text-accent"> VR</span>
           </a>
 
-          {/* Desktop Links */}
           <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <a
@@ -55,14 +49,15 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href={gameInfo.website}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-accent/30 px-5 py-2 text-sm text-accent transition-all hover:border-accent hover:bg-accent/10"
             >
-              Let&apos;s Talk
+              Get the Game
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
@@ -80,16 +75,13 @@ export default function Navbar() {
             />
             <motion.span
               className="block h-[1.5px] w-6 bg-heading"
-              animate={
-                mobileOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }
-              }
+              animate={mobileOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
           </button>
         </nav>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
