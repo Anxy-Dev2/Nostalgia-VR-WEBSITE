@@ -35,7 +35,9 @@ export default function Home() {
       <Navbar />
 
       <main className="relative z-10">
-        <Hero />
+        <div className="h-screen flex items-center justify-center">
+          <Hero />
+        </div>
         <Marquee
           phrases={[
             "DREAMCORE",

@@ -62,7 +62,7 @@ export default function Hero() {
           <img
             src="/images/Untitled3.png"
             alt="Logo"
-            className="h-auto max-w-[800px] w-full max-h-[500px] drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+            className="h-auto max-w-[100vw] w-[100vw] max-h-[85vh] drop-shadow-[0_0_100px_rgba(255,255,255,0.3),0_50px_100px_rgba(0,0,0,0.8)] mx-auto"
           />
         </motion.div>
 
